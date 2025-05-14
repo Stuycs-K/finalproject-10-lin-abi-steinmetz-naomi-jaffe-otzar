@@ -1,9 +1,9 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/am3xLbu5)
-# PROJECT NAME HERE (CHANGE THIS!!!!!)
+# Audio Stegonography
  
-### GROUP NAME HERE (CHANGE THIS!!!!!)
+### Group Name: CITY HALL DAD LEGS
 
-Group Members Here (CHANGE THIS!!!!!)
+**Group Members:** Abigail Lin, Naomi Steinmetz, Otzar Jaffe
        
 ### Project Description:
 
