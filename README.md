@@ -16,4 +16,4 @@ How does the user interact with this program? (CHANGE THIS!!!!!)
 
 ### Resources/ References:
 
-list here(CHANGE THIS!!!!!)
+https://svenruppert.com/2024/04/17/audio-steganography-in-more-detail/
