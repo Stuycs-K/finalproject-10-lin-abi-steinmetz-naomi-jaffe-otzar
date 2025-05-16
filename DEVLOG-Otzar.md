@@ -7,5 +7,6 @@ This document must be updated daily every time you finish a work session.
 ### 2025-05-14 - Research
 Reading an article about different types of audio stenography.
 
-### 2024-01-03 - Brief description
+### 2025-05-15 - Research
+Classwork: Reading about WAV files and the basics of audio stenography.
 
