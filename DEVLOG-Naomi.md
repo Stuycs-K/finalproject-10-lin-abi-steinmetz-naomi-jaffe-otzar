@@ -9,6 +9,6 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-15 - Wave Library
 + read documentation for python wave library
 ### 2024-05-15 - Other Libraries
-+ looked over wave documentation again and discussed
-+ looked at sys and os libraries
++ looked over wave documentation again 
++ looked at sys and os libraries and discussed whether to use them 
 
