@@ -9,4 +9,5 @@ Reading an article about different types of audio stenography.
 
 ### 2025-05-15 - Research
 Classwork: Reading about WAV files and the basics of audio stenography.
+Homework: Working on proposal.
 
