@@ -12,3 +12,5 @@ This document must be updated daily every time you finish a work session.
 + looked over wave documentation again 
 + looked at sys and os libraries and discussed whether to use them 
 
+### 2024-05-19 - Encode.py
++ note: placeholder in order to create new branch
