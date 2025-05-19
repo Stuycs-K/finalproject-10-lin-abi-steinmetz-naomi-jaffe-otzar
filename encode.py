@@ -23,11 +23,15 @@ print("message read: ",msg)
 msg_bin = ''.join(format(ord(c), '08b') for c in msg)
 msg_len = len(msg_bin)
 print("message in binary: ",msg_bin)
+print("message in binary printing bits:")
+for t in msg_bin:
+    print(" ",int(t))
+
 
 # 1 LSB per sample? need to check if can fit into audio
 i = 0
 for bit in msg_bin:
-    frame_bytes[i] = (frame_bytes[i] & 254)|bit
+    frame_bytes[i] = (frame_bytes[i] & 254)|int(bit)
     i+=1
     if (i > len(frame_bytes)-1):
         print("incomplete encoding")
@@ -41,4 +45,3 @@ with wave.open("audio_modified.wav", "wb") as song:
     song.writeframes(new_frames)
 
 print("embedded audio available")
-
