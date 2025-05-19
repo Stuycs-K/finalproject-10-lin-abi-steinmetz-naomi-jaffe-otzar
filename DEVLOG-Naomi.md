@@ -14,3 +14,4 @@ This document must be updated daily every time you finish a work session.
 
 ### 2024-05-19 - Encode.py
 + started LSB
++ putting modified bytes into a new wav file

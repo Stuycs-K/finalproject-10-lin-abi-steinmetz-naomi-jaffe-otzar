@@ -29,7 +29,16 @@ i = 0
 for bit in msg_bin:
     frame_bytes[i] = (frame_bytes[i] & 254)|bit
     i+=1
-    if (i > len(frame_bytes)):
+    if (i > len(frame_bytes)-1):
         print("incomplete encoding")
         break
 # LSB code
+
+new_frames = bytes(frame_bytes) #look into whether this is necessary
+
+with wave.open("audio_modified.wav", "wb") as song:
+    song.setcomptype(parameters)
+    song.writeframes(new_frames)
+
+print("embedded audio available")
+
