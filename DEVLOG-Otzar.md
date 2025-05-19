@@ -12,5 +12,7 @@ Classwork: Reading about WAV files and the basics of audio stenography.
 Homework: Working on proposal.
 
 ### 2025-05-16 - Out of school (very sick)
+Homework: Sick all weekend
 
-### 2025-05-19 -
+### 2025-05-19 - Proposal + Decode
+Classwork: Gave everyone different role and determine a timeline. I'm working on the decode function. Started the decode file.
