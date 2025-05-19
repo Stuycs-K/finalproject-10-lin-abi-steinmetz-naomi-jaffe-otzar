@@ -9,9 +9,13 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-15 - Wave Library
 + read documentation for python wave library
 ### 2024-05-15 - Other Libraries
-+ looked over wave documentation again 
-+ looked at sys and os libraries and discussed whether to use them 
++ looked over wave documentation again
++ looked at sys and os libraries and discussed whether to use them
 
 ### 2024-05-19 - Encode.py
 + started LSB
 + putting modified bytes into a new wav file
+
+### 2024-05-19 - Encode.py debugging
++ helped work out pacing in proposal
++ started debugging encode
