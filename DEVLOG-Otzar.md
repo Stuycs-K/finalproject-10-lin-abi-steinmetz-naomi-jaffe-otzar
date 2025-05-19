@@ -11,3 +11,6 @@ Reading an article about different types of audio stenography.
 Classwork: Reading about WAV files and the basics of audio stenography.
 Homework: Working on proposal.
 
+### 2025-05-16 - Out of school (very sick)
+
+### 2025-05-19 -
