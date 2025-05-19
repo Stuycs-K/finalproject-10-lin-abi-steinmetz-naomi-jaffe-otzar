@@ -1,5 +1,6 @@
 import wave
 import os
+import struct
 
 # open cover audio file, retrieve parameters -> convert to binary string of bits (later)
 audio = wave.open("audio.wav", "rb")
@@ -19,4 +20,9 @@ print("message read: ",msg)
 
 # convert the message to binary
 msg_bin = ''.join(format(ord(c), '08b') for c in msg)
+msg_len = len(msg_bin)
 print("message in binary: ",msg_bin)
+
+# 1 LSB per sample? need to check if can fit into audio
+
+# LSB code
