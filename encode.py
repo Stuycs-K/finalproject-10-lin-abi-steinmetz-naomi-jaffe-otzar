@@ -10,6 +10,7 @@ sample_width = audio.getsampwidth()
 num_frames = audio.getnframes()
 num_samples = num_frames * num_channels
 audio_frames = audio.readframes(num_frames)
+frame_bytes = bytearray(list(audio_frames)) #convert song to byte array
 print("parameters: ", parameters)
 print("num of audio samples: ", num_samples)
 
@@ -24,5 +25,11 @@ msg_len = len(msg_bin)
 print("message in binary: ",msg_bin)
 
 # 1 LSB per sample? need to check if can fit into audio
-
+i = 0
+for bit in msg_bin:
+    frame_bytes[i] = (frame_bytes[i] & 254)|bit
+    i+=1
+    if (i > len(frame_bytes)):
+        print("incomplete encoding")
+        break
 # LSB code
