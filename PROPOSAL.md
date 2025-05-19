@@ -20,6 +20,8 @@ python audio.py decode out.wav
 
 # Technical Details:
 
+- audio stegnography, bitwise operations (manipulation), encode/decode, 
+
 (CHANGE THIS!!!!!)
 
 A description of your technical design. This should include: 
@@ -31,4 +33,9 @@ How you are breaking down the project and who is responsible for which parts.
     
 # Intended pacing:
 
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+encode.py working by Wednesday, May 21st
+decode.py working by Friday, May 23rd
+debugging + extra feature by Monday, May 26th
+presentation.md finished by Tuesday (class), May 27th
+Video Presentation by Tuesday, May 27th
+Finishing touches, video editing done by Wednesday, May 28th
