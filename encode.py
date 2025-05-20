@@ -4,13 +4,11 @@ import struct
 import sys
 
 # command line arguments
-if len(sys.argv) != 3:
-    print("Usage: make encode ARGS=\"<audiofile.wav> <message.txt>\"")
+if len(sys.argv) < 3:
+    print("Usage: make encode ARGS=\"<audiofile.wav> <message1.txt> <message2txt> ...\"")
     exit()
 
 audiofile = sys.argv[1]
-message = sys.argv[2]
-
 # open cover audio file, retrieve parameters -> convert to binary string of bits (later)
 audio = wave.open(audiofile, "rb")
 parameters = audio.getparams()
@@ -23,10 +21,14 @@ frame_bytes = bytearray(list(audio_frames)) #convert song to byte array
 print("parameters: ", parameters)
 print("num of audio samples: ", num_samples)
 
-# read the message
-with open(message, "r") as file:
-    msg = file.read()
-print("message read: ",msg)
+msg = ""
+for f in range(2,len(sys.argv)):
+    message = sys.argv[f]
+
+    # read the message
+    with open(message, "r") as file:
+        msg += file.read()
+    print("message read: ",msg)
 
 # convert the message to binary
 msg_bin = ''.join(format(ord(c), '08b') for c in msg)
@@ -51,7 +53,10 @@ for bit in msg_bin:
         print("incomplete encoding")
         break
 
-
+# for x in range(8):
+#     if (i <= len(frame_bytes)-1):
+#         frame_bytes[i] = (frame_bytes[i] & 254)|1
+#     i+=1
 
 new_frames = bytes(frame_bytes) #look into whether this is necessary
 

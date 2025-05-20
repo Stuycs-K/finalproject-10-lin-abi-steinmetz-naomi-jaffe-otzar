@@ -19,3 +19,7 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-19 - Encode.py debugging
 + helped work out pacing in proposal
 + started debugging encode
+
+### 2024-05-19 - Encode.py additional features
++ added some terminating bits
++ took in multiple data files as input for encode
