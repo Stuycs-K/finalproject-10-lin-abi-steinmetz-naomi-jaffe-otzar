@@ -45,18 +45,18 @@ if msg_len > len(frame_bytes):
     print("message is too large to encode in audio file")
     exit()
 
-i = 0
+i = 45
 for bit in msg_bin:
-    frame_bytes[i] = (frame_bytes[i] & 254)|int(bit)
-    i+=1
     if (i > len(frame_bytes)-1):
         print("incomplete encoding")
         break
+    frame_bytes[i] = (frame_bytes[i] & 254)|int(bit)
+    i+=1
 
-# for x in range(8):
-#     if (i <= len(frame_bytes)-1):
-#         frame_bytes[i] = (frame_bytes[i] & 254)|1
-#     i+=1
+for x in range(8):
+    if (i <= len(frame_bytes)-1):
+        frame_bytes[i] = (frame_bytes[i] & 254)|1
+    i+=1
 
 new_frames = bytes(frame_bytes) #look into whether this is necessary
 
