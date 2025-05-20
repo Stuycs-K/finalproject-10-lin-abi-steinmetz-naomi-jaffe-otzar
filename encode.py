@@ -1,9 +1,18 @@
 import wave
 import os
 import struct
+import sys
+
+# command line arguments
+if len(sys.argv) != 3:
+    print("Usage: make encode ARGS=\"<audiofile.wav> <message.txt>\"")
+    exit()
+
+audiofile = sys.argv[1]
+message = sys.argv[2]
 
 # open cover audio file, retrieve parameters -> convert to binary string of bits (later)
-audio = wave.open("audio.wav", "rb")
+audio = wave.open(audiofile, "rb")
 parameters = audio.getparams()
 num_channels = audio.getnchannels()
 sample_width = audio.getsampwidth()
@@ -15,20 +24,28 @@ print("parameters: ", parameters)
 print("num of audio samples: ", num_samples)
 
 # read the message
-with open("data.txt", "r") as file:
+with open(message, "r") as file:
     msg = file.read()
 print("message read: ",msg)
 
 # convert the message to binary
 msg_bin = ''.join(format(ord(c), '08b') for c in msg)
+# delimiter so decoder knows when to stop (for decoding, can delete)
+terminate = '1111111111111110'
+msg_bin += terminate
+
 msg_len = len(msg_bin)
 print("message in binary: ",msg_bin)
-print("message in binary printing bits:")
-for t in msg_bin:
-    print(" ",int(t))
+# print("message in binary printing bits:")
+# for t in msg_bin:
+#     print(" ",int(t))
 
 
-# 1 LSB per sample? need to check if can fit into audio
+# 1 LSB per sample -> can ramp up to 2 or 4 LSB
+if msg_len > len(frame_bytes):
+    print("message is too large to encode in audio file")
+    exit()
+
 i = 0
 for bit in msg_bin:
     frame_bytes[i] = (frame_bytes[i] & 254)|int(bit)
@@ -36,12 +53,12 @@ for bit in msg_bin:
     if (i > len(frame_bytes)-1):
         print("incomplete encoding")
         break
-# LSB code
 
 new_frames = bytes(frame_bytes) #look into whether this is necessary
 
 with wave.open("audio_modified.wav", "wb") as song:
-    song.setcomptype(parameters)
+    # song.setcomptype(parameters)
+    song.setparams(parameters)
     song.writeframes(new_frames)
 
 print("embedded audio available")
