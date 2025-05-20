@@ -20,6 +20,12 @@ python audio.py decode out.wav
 
 # Technical Details:
 
+- audio stegnography, bitwise operations (manipulation), encode/decode,
+
+Our project includes audio stegnography using LSB, which will require bitwise manipulation to encode and decode secret messages.
+
+Abigail and Naomi are working on encode.py, as well as exploring extra features to be included into the design. Otzar is working on decode.py. Afterwards, all of us will collaberate on slides and creating the video.
+
 (CHANGE THIS!!!!!)
 
 A description of your technical design. This should include: 
@@ -31,4 +37,11 @@ How you are breaking down the project and who is responsible for which parts.
     
 # Intended pacing:
 
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+| Project   | Due Date |
+| --------  | ---------|
+| encode.py | Wednesday, May 21st |
+| decode.py | Friday, May 23rd |
+| Debugging + Extra Features | Monday, May 26th |
+| Presentation.md | Tuesday (class), May 27th |
+| Video Presentation | Tuesday, May 27th |
+| Finishing touches, video editing | Wednesday, May 28th |
