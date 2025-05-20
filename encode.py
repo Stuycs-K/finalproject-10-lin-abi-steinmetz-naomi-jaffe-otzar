@@ -36,9 +36,6 @@ msg_bin += terminate
 
 msg_len = len(msg_bin)
 print("message in binary: ",msg_bin)
-# print("message in binary printing bits:")
-# for t in msg_bin:
-#     print(" ",int(t))
 
 
 # 1 LSB per sample -> can ramp up to 2 or 4 LSB
@@ -53,6 +50,8 @@ for bit in msg_bin:
     if (i > len(frame_bytes)-1):
         print("incomplete encoding")
         break
+
+
 
 new_frames = bytes(frame_bytes) #look into whether this is necessary
 
