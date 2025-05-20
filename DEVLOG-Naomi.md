@@ -23,3 +23,7 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-19 - Encode.py additional features
 + added some terminating bits
 + took in multiple data files as input for encode
+
+### 2024-05-19 - audio_modified.wav
++ tested encode
++ fixed output wav file header 
