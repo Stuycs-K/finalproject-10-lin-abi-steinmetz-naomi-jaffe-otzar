@@ -53,10 +53,10 @@ for bit in msg_bin:
         print("incomplete encoding")
         break
 
-# for x in range(8):
-#     if (i <= len(frame_bytes)-1):
-#         frame_bytes[i] = (frame_bytes[i] & 254)|1
-#     i+=1
+#for x in range(16):
+#    if (i <= len(frame_bytes)-1):
+#        frame_bytes[i] = (frame_bytes[i] & 254)|1
+#    i+=1
 
 new_frames = bytes(frame_bytes) #look into whether this is necessary
 
