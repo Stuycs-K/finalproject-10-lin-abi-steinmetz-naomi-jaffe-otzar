@@ -23,7 +23,7 @@ for bit in frame_bytes[45:]:
 
 # Group arr by eights, convert to decimal, then to unicode
 decoded_bytes = ""
-for i in range(0, len(decoded_bits) // 8, 8):
-	decoded_bytes += str(chr(int("".join(decoded_bits[i:i+8]),2)))
+for i in range(0, len(decoded_bits), 8):
+	decoded_bytes += chr(int(decoded_bits[i:i+8],2))
 
-print(decoded_bits)
+print(decoded_bytes)
