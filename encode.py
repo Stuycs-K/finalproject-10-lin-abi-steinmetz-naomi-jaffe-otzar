@@ -61,7 +61,9 @@ def encoding(fileList):
 
     new_frames = bytes(frame_bytes) #look into whether this is necessary
 
-    with wave.open("audio_modified.wav", "wb") as song:
+    mod_name = audiofile[0:len(audiofile)-4] + "_modified.wav"
+
+    with wave.open(mod_name, "wb") as song:
         # song.setcomptype(parameters)
         song.setparams(parameters)
         song.writeframes(new_frames)

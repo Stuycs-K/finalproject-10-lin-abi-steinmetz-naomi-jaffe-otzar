@@ -24,6 +24,10 @@ This document must be updated daily every time you finish a work session.
 + added some terminating bits
 + took in multiple data files as input for encode
 
-### 2024-05-19 - audio_modified.wav
+### 2024-05-20 - audio_modified.wav
 + tested encode
 + fixed output wav file header 
+
+### 2024-05-20 - user interface tweaks
++ added option of manual user input for encode
++ changed default embedded audio file name to include name of original file
