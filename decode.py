@@ -12,10 +12,11 @@ decoded_bits = ""
 ending = '1111111111111110'
 
 # Get an arr of the last bits
-for bit in frame_bytes:
+for bit in frame_bytes[45:]:
 	last_bit = bit & 1
 	decoded_bits += str(int(last_bit))
 
+	# Ending
 	if len(decoded_bits) > len(ending) and decoded_bits[len(decoded_bits) - len(ending):] == ending:
 		decoded_bits = decoded_bits[:len(decoded_bits) - len(ending)]
 		break

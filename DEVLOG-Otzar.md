@@ -20,3 +20,4 @@ Homework: Working on the decode file
 
 ### 2025-05-20 - Debugging
 Classwork: Working to debug the decode - right now it is only outputing binary for some reason.
+Homework: More debugging
