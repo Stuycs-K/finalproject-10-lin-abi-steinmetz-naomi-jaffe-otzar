@@ -3,8 +3,6 @@ import os
 import struct
 import sys
 
-
-
 def encoding(fileList):
     if (len(fileList) < 2):
         print("Invalid arguments")
@@ -40,13 +38,32 @@ def encoding(fileList):
     msg_len = len(msg_bin)
     print("message in binary: ",msg_bin)
 
+    # if msg_len > len(frame_bytes):
+    #     print("message is too large to encode in audio file")
+    #     return "false"
 
-    # 1 LSB per sample -> can ramp up to 2 or 4 LSB
-    if msg_len > len(frame_bytes):
+    if msg_len > len(frame_bytes) * 2:
         print("message is too large to encode in audio file")
         return "false"
 
+    # msg_len_bits = len(msg_bin)
+    # length_bytes = struct.pack('>I', msg_len_bits)
+    # length_bits = ''.join(format(b, '08b') for b in length_bytes)
+
     i = 45
+    # 2 LSB per sample
+    if len(msg_bin) % 2 != 0:
+        msg_bin += '0'
+
+    for j in range(0, len(msg_bin), 2):
+        if i > len(frame_bytes) - 1:
+            print("incomplete encoding")
+            break
+        two_bits = msg_bin[j:j+2]
+        two_bits_val = int(two_bits, 2)
+        frame_bytes[i] = (frame_bytes[i] & 252)| two_bits_val # clears last 2 bits
+        i+= 1
+
     for bit in msg_bin:
         if (i > len(frame_bytes)-1):
             print("incomplete encoding")
