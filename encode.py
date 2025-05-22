@@ -64,17 +64,18 @@ def encoding(fileList):
         frame_bytes[i] = (frame_bytes[i] & 252)| two_bits_val # clears last 2 bits
         i+= 1
 
-    for bit in msg_bin:
-        if (i > len(frame_bytes)-1):
-            print("incomplete encoding")
-            break
-        frame_bytes[i] = (frame_bytes[i] & 254)|int(bit)
-        i+=1
+    # 1 LSB
+    # for bit in msg_bin:
+    #     if (i > len(frame_bytes)-1):
+    #         print("incomplete encoding")
+    #         break
+    #     frame_bytes[i] = (frame_bytes[i] & 254)|int(bit)
+    #     i+=1
 
-    for x in range(8):
-        if (i <= len(frame_bytes)-1):
-            frame_bytes[i] = (frame_bytes[i] & 254)|1
-        i+=1
+    # for x in range(8):
+    #     if (i <= len(frame_bytes)-1):
+    #         frame_bytes[i] = (frame_bytes[i] & 254)|1
+    #     i+=1
 
     new_frames = bytes(frame_bytes) #look into whether this is necessary
 
