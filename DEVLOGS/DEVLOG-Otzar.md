@@ -29,3 +29,7 @@ Homework: Finished debugging and merged with main
 ### 2025-05-22 - Finished up decode and researching extensions
 Classwork: AP Exam
 Homework: Research
+
+### 2025-05-23 - Working on phase coding
+Homework: Trying to understand this https://ijarcce.com/wp-content/uploads/2012/06/11_LSB-Modification-and-Phase-Encoding-Technique-of-Audio-Steganography-Revisited.pdf
+
