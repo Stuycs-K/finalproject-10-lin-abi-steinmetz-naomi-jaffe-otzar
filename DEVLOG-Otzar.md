@@ -25,3 +25,7 @@ Homework: More debugging
 ### 2025-05-21 - Finished Debugging the LSB decode
 Classwork: AP Exam
 Homework: Finished debugging and merged with main
+
+### 2025-05-22 - Finished up decode and researching extensions
+Classwork: AP Exam
+Homework: Research
