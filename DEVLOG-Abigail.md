@@ -24,7 +24,12 @@ In class, worked with groupmates to explain what we did in our respective roles 
 
 At home, working on enhancing the current LSB to store with 2 bytes instead of 1 byte for a more undetectable way of hiding messages. This should come out with slighter worse audio, but a higher chance of remaining undetected versus the classic 1 byte LSB method. Need to test with decode, but similar code instead clearing and using the last 2 bits.
 
-### 2024-05-19 - Finishing LSB 2 byte method
+### 2024-05-21 - Finishing LSB 2 byte method
 Out for AP Macro.
 
 At home, tested current decode.py. Had to debug and remove some code from the prior 1 LSB that was messing up the code, and adjust decoder slightly to accomodate for the new LSB 2 byte method. Tested and finished.
+
+### 2024-05-22 - Starting LSB with Flipper method
+Out for AP Calc BC.
+
+At home, started working on LSB with flipper, which will take the 3rd and 4th bits of each audio byte, and only change them if they match certain conditions. Created check_flip function.
