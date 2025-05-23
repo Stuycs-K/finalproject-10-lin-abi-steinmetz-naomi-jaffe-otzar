@@ -31,3 +31,10 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-20 - user interface tweaks
 + added option of manual user input for encode
 + changed default embedded audio file name to include name of original file
+
+### 2024-05-21
++ not in class due to AP Macro
+
+### 2024-05-21 - second technique research
++ tested decode.py
++ researched phase coding and tone insertion
