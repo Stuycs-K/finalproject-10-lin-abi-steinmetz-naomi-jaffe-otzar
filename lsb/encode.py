@@ -3,7 +3,7 @@ import os
 import struct
 import sys
 
-def check_flip(data, a, b) # part of LSB flip, which modifies 3rd + 4th LSB, and changes it based on pattern
+def check_flip(data, a, b): # part of LSB flip, which modifies 3rd + 4th LSB, and changes it based on pattern
     stored = data & 12 # 3rd and 4th bits
     if store == 0 and (a == 0 and b == 0):
         return data
@@ -21,7 +21,7 @@ def encoding(fileList):
     if (len(fileList) < 2):
         print("Invalid arguments")
         return "false"
-    audiofile = fileList[1]
+    audiofile = "data/"+fileList[1]
     # open cover audio file, retrieve parameters -> convert to binary string of bits (later)
     audio = wave.open(audiofile, "rb")
     parameters = audio.getparams()
@@ -36,7 +36,7 @@ def encoding(fileList):
 
     msg = ""
     for f in range(2,len(fileList)):
-        message = fileList[f]
+        message = "data/"+fileList[f]
 
         # read the message
         with open(message, "r") as file:
