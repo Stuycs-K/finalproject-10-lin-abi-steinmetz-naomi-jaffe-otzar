@@ -38,3 +38,7 @@ At home, started working on LSB with flipper, which will take the 3rd and 4th bi
 In class, Otzar updated the organization by putting everything into files. I updated encode.py and decode.py so that it properly accounts for this, and can be run in the general folder.
 
 At home, continuied to improve on the user input. Makefile is now properly updated. Finished flipper mode, and updated the user input so that it can switch between 1-bit, 2-bit, and now 2-bit with flipper. Added user-input to decode.py as well.
+
+
+### 2024-05-23 - Updating README.md and writing script for presentation
+In class, worked on re-reading the articles and resources we used in our research to compile into a readable format for our README.md and script presentation. All work on google doc.
