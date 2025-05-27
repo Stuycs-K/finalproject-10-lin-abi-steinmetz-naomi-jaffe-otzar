@@ -23,3 +23,14 @@ for i in range(0, len(frame_bytes), 2):
 
 print(num_samples)
 print(len(samples))
+
+# 3: message bits
+message_bits = []
+for i in message:
+	byte = ord(i)
+	# convert to binary and get a string
+	raw_binary = str(bin(byte)[2:].zfill(8))
+	for j in raw_binary:
+		message_bits.append(int(j))
+
+
