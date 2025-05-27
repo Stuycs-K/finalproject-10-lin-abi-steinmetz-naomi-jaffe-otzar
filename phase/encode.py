@@ -33,4 +33,9 @@ for i in message:
 	for j in raw_binary:
 		message_bits.append(int(j))
 
+samples = np.fft.fft(samples)
 
+for i in range(num_samples):
+	pass	
+
+samples = np.fft.ifft(samples)

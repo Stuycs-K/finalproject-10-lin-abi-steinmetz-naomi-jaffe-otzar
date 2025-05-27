@@ -33,3 +33,6 @@ Homework: Research
 ### 2025-05-23 - Working on phase coding
 Classwork: Trying to understand this https://ijarcce.com/wp-content/uploads/2012/06/11_LSB-Modification-and-Phase-Encoding-Technique-of-Audio-Steganography-Revisited.pdf
 Homework: Started on the phase coding: split apart the audio and decoded the audio into the right text format
+
+### 2025-05-27 - Still confused on how phase coding works
+Classwork: Reviewing a code example and trying to figure out exactly what each numpy function does to see how it works exactly.
