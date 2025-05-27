@@ -1,5 +1,5 @@
 encode:
-	@python3 lsb/encode.py $(ARGS)
+	@python3 lsb/encode.py
 encode2:
 	@python lsb/encode.py
 decode:
