@@ -49,3 +49,9 @@ This document must be updated daily every time you finish a work session.
 + added new test cases
 + tested lsb encode and decode
 + fixed file path in decode
+
+
+### 2024-05-27 - start phase coding
++ researched phase coding
++ tried to understand templates
++ looked at numpy library
