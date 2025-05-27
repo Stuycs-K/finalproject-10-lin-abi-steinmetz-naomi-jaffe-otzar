@@ -3,6 +3,8 @@ import os
 import struct
 import sys
 
+
+
 def check_flip(data, a, b): # part of LSB flip, which modifies 3rd + 4th LSB, and changes it based on pattern
     stored = data & 12 # 3rd and 4th bits
     if store == 0 and (a == 0 and b == 0):
