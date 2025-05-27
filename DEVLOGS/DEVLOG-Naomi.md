@@ -44,3 +44,8 @@ This document must be updated daily every time you finish a work session.
 
 ### 2024-05-23
 + not in class due to AP German
+
+### 2024-05-26 - testing lsb
++ added new test cases
++ tested lsb encode and decode
++ fixed file path in decode
