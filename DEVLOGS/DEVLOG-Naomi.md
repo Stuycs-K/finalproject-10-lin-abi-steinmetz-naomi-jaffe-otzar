@@ -55,3 +55,8 @@ This document must be updated daily every time you finish a work session.
 + researched phase coding
 + tried to understand templates
 + looked at numpy library
+
+
+### 2024-05-28 - continued phase coding
++ looked at scipy library
++ helped determine if audio was stereo or mono
