@@ -36,3 +36,4 @@ Homework: Started on the phase coding: split apart the audio and decoded the aud
 
 ### 2025-05-27 - Still confused on how phase coding works
 Classwork: Reviewing a code example and trying to figure out exactly what each numpy function does to see how it works exactly.
+Homework: Watching a YT video to understand better.
