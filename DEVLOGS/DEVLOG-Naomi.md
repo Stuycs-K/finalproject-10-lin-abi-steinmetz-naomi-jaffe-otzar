@@ -55,3 +55,7 @@ This document must be updated daily every time you finish a work session.
 + researched phase coding
 + tried to understand templates
 + looked at numpy library
+
+### 2024-05-27 - chunks
++ tried to write chunks for phase coding
++ looked at np.diff, np.fft, pytorch library
