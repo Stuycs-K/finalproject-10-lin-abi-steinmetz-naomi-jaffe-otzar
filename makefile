@@ -1,8 +1,8 @@
 encode:
-	@python3 encode.py $(ARGS)
+	@python3 lsb/encode.py
 encode2:
-	@python encode.py
+	@python lsb/encode.py
 decode:
-	@python3 decode.py $(ARGS)
+	@python3 lsb/decode.py $(ARGS)
 decode2:
-	@python decode.py $(ARGS)
+	@python lsb/decode.py $(ARGS)

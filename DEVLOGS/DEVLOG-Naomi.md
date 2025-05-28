@@ -38,3 +38,20 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-21 - second technique research
 + tested decode.py
 + researched phase coding and tone insertion
+
+### 2024-05-22 
++ not in class due to AP Calc BC
+
+### 2024-05-23
++ not in class due to AP German
+
+### 2024-05-26 - testing lsb
++ added new test cases
++ tested lsb encode and decode
++ fixed file path in decode
+
+
+### 2024-05-27 - start phase coding
++ researched phase coding
++ tried to understand templates
++ looked at numpy library
