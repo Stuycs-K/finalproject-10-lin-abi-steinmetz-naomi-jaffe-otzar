@@ -40,7 +40,10 @@ In class, Otzar updated the organization by putting everything into files. I upd
 At home, continuied to improve on the user input. Makefile is now properly updated. Finished flipper mode, and updated the user input so that it can switch between 1-bit, 2-bit, and now 2-bit with flipper. Added user-input to decode.py as well.
 
 
-### 2024-05-23 - Updating README.md and writing script for presentation
+### 2024-05-27 - Updating README.md and writing script for presentation
 In class, worked on re-reading the articles and resources we used in our research to compile into a readable format for our README.md and script presentation. All work on google doc.
 
 At home, continuing to add to sources and outside uses of audio stegography with images and article sources. All work on google doc.
+
+### 2024-05-28 - Updating README.md and writing script for presentation
+In class, was updated on Naomi and Otzar's progress on phase coding. Continued to add to google doc of compiling research and presentation script.
