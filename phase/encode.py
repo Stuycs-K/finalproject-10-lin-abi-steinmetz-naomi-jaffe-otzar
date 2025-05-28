@@ -2,6 +2,9 @@ import wave
 import numpy as np
 import sys
 import struct
+from scipy.io import wavfile
+import torch
+from scipy.fft import fft, ifft
 
 file = sys.argv[1]
 message = sys.argv[2]
@@ -39,3 +42,10 @@ for i in range(num_samples):
 	pass	
 
 samples = np.fft.ifft(samples)
+
+# for i in samples:
+# 	i = abs(fft(i))
+# 	i = np.angle(i) #idk if we can get around the use of np here
+
+# arr_torch = torch.tensor(samples)
+# diff_torch = arr_torch[1:] - arr_torch[:-1] #around axis=-1, i think, needs to be axis=0 but idk how to do that
