@@ -11,7 +11,7 @@ file = sys.argv[1]
 message = sys.argv[2]
 
 # 1: read file
-def read_file(file: str): -> List[int, np.arr]
+def read_file(file: str) -> List[int, np.arr]:
 	return rate, data = wavefile.read(file)
 
 # 2: get the samples
@@ -26,7 +26,7 @@ def get_samples():
 	return samples
 
 # 3: message bits
-def get_bits():
+def get_bits() -> List[int]:
 	message_bits = []
 	for i in message:
 		byte = ord(i)
@@ -34,6 +34,7 @@ def get_bits():
 		raw_binary = str(bin(byte)[2:].zfill(8))
 		for j in raw_binary:
 			message_bits.append(int(j))
+	return message_bits
 
 samples = np.fft.fft(samples)
 
