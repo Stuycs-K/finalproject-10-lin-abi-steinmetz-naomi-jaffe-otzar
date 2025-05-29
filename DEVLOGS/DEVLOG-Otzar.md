@@ -40,3 +40,6 @@ Homework: Watching a YT video to understand better.
 
 ### 2025-05-28 - Continuing working and debugging
 Classwork: Encoding function
+
+### 2025-05-29 - Chunks
+Getting the chunks to work right.
