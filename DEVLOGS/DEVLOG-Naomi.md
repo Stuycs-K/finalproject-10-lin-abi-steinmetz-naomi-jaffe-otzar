@@ -59,3 +59,8 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-27 - chunks
 + tried to write chunks for phase coding
 + looked at np.diff, np.fft, pytorch library
+
+
+### 2024-05-29 - phase encoding
++ looked at tutorial
++ compared tutorial with template
