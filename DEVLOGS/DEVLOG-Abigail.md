@@ -43,6 +43,8 @@ At home, continuied to improve on the user input. Makefile is now properly updat
 ### 2024-05-27 - Updating README.md and writing script for presentation
 In class, worked on re-reading the articles and resources we used in our research to compile into a readable format for our README.md and script presentation. All work on google doc.
 
+At home, finished up README.md script, will be importing it into the file along with links and images tommorow.
+
 At home, continuing to add to sources and outside uses of audio stegography with images and article sources. All work on google doc.
 
 ### 2024-05-28 - Updating README.md and writing script for presentation
