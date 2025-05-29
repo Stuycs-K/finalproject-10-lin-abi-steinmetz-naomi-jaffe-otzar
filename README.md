@@ -32,6 +32,13 @@ In our python implementation, we will use bit manipulation tool AND with a bit m
   
 ### Instructions:
 
+In order to run this project, you must have Python installed.
+1. **Clone the repository:**
+```bash
+git clone git@github.com:Stuycs-K/finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar.git
+cd finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar
+```
+
 How does the user install/compile/run the program. (CHANGE THIS!!!!!)
 How does the user interact with this program? (CHANGE THIS!!!!!)
 
