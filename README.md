@@ -38,9 +38,38 @@ In order to run this project, you must have Python installed.
 git clone git@github.com:Stuycs-K/finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar.git
 cd finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar
 ```
+2. **Check directory:**
+   ```
+   finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar/
+   ├── DEVLOGS/
+   │   ├── DEVLOG-Abigail.md
+   │   ├── DEVLOG-Naomi.md
+   │   ├── DEVLOG-Otzar.md
+   ├── README.md
+   ├── data/
+   │   ├── audio.wav
+   │   ├── data.txt
+   ├── images/
+   │   ├── image1.jpg
+   │   ├── image2.jpg
+   ├── lsb/
+   │   ├── decode.py
+   │   ├── encode.py
+   └── makefile
+   ```
+3. **Encode a message:**
+You will be prompted to input the neccessary parameters: .wav audio file, .txt secret message, and which LSB encoding mode.
 
-How does the user install/compile/run the program. (CHANGE THIS!!!!!)
-How does the user interact with this program? (CHANGE THIS!!!!!)
+Python 3: ```make encode```
+
+Python: ```make encode2```
+
+4. **Decode a message:**
+For decode, you will need to give the .wav file to decode. The program will prompt you for which decoding LSB mode you would like to use.
+
+Python 3: ```make decode ARGS="(.wav file)"```
+
+Python: ```make decode2 ARGS="(.wav file)"```
 
 ### Resources/ References:
 
