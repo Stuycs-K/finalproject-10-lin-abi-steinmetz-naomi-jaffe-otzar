@@ -74,3 +74,18 @@ Python: ```make decode2 ARGS="(.wav file)"```
 ### Resources/ References:
 
 https://svenruppert.com/2024/04/17/audio-steganography-in-more-detail/
+
+**Documentation:**
+https://docs.python.org/3/library/wave.html
+https://docs.python.org/3/library/os.html
+https://docs.python.org/3/library/sys.html
+
+**Audio Stegnography:**
+https://svenruppert.com/2024/04/17/audio-steganography-in-more-detail/
+
+**LSB:**
+https://daniellerch.me/stego/intro/lsb-en/
+https://github.com/sniperline047/Audio-Steganography-CLI/tree/main/algorithms
+
+**Phase Coding:**
+https://dsp.stackexchange.com/questions/14804/audio-steganography-using-phase-encoding-technique
