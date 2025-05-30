@@ -45,6 +45,8 @@ rate, data = wavefile.read(file)
 num_samples = len(data)
 message_bits = get_bits(message)
 message_len = len(message_bits)
+
+# Step 1
 sizeOfChunk = math.celi(num_samples / message_len)
 numChunks = math.ceil(len(data) / sizeOfChunk)
 
@@ -52,17 +54,20 @@ data_chunks = []
 for i in range(0, len(data), sizeOfChunk):
 	endpoint = i + sizeOfChunk if i + sizeOfChunk < len(data) else len(data)
 	data_chunks.append(data[i:endpoint])
-	
+
+# Step 2
 info = []
 for chunk in data_chunks:
 	mag = abs(np.fft.ftt(chunk))
 	angle = np.angle(np.fft.fft(chunk))
 	info.append((mag, angle))
 
+# Step 3
 phase_differences = []
 for i in range(1, len(info)):
 	phase_differences.append(info[i][1] - info[i-1][1])
 
+# Step 4
 phi_list = []
 for i in range(len(info)):
 	message_bit = message_bits[i]
@@ -71,7 +76,13 @@ for i in range(len(info)):
 	else:
 		phi_list.append(-np.pi / 2)
 
+# Step 5a
+for i in range(message_len):
+	info[sizeOfChunk/2 - message_len + i][1] = phi_list[i]
 
+# Step 5b
+for i in range(message_len):
+	info[sizeOfChunk/2 + 1 + i][1] = phi_list[message_len + 1 - i]
 
 #samples = np.fft.ifft(samples)
 
