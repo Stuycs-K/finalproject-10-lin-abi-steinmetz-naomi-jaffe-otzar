@@ -74,3 +74,5 @@ This document must be updated daily every time you finish a work session.
 + tried writing steps 5 and 6 based off of tutorial
 + put comments about step 7
 
+### 2024-05-30 - 
++ looked over encode
