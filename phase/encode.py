@@ -47,7 +47,7 @@ message_bits = get_bits(message)
 message_len = len(message_bits)
 
 # Step 1
-sizeOfChunk = math.celi(num_samples / message_len)
+sizeOfChunk = math.ceil(num_samples / message_len)
 numChunks = math.ceil(len(data) / sizeOfChunk)
 
 data_chunks = []
@@ -84,20 +84,11 @@ for i in range(message_len):
 for i in range(message_len):
 	info[sizeOfChunk/2 + 1 + i][1] = phi_list[message_len + 1 - i]
 
-#samples = np.fft.ifft(samples)
+# Step 6
+for i in range(2, numChunks):
+	info[i][1] = info[i-1][1] + phase_differences[i]
 
-# must find chunksize: example uses np code  
-# "The expression 2 * 2 ** np.ceil(np.log2(2 * textLength)) calculates the smallest power of 2 that is greater than or equal to 2 * textLength, and then multiplies the result by 2. Here's how it breaks down"
-
-# for i in samples:
-# 	i = abs(fft(i))
-# 	i = np.angle(i) #idk if we can get around the use of np here
-
-# diff_samples = [samples[i+1] - samples[i] for i range(len(arr) - 1)] 
-
-# converting message to phase diffs
-# message_bits[message_bits == 0] = -1
-# message_bits *= -math.pi/2
-
-# phase conversion
-# 
+# Step 7
+# wth does Aiexp(jphasei) mean????
+# put the thing back into chunks, reconstruct signal
+# chunks = np.fft.ifft(chunks)
