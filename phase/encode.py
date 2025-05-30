@@ -4,13 +4,14 @@ import struct
 import math
 from scipy.io import wavfile
 from scipy.fft import fft, ifft
-from typing import List
+from typing import Tuple, List
+from numpy.typing import NDArray
 
 file = sys.argv[1]
 message = sys.argv[2]
 
-def read_file(file: str) -> List[int, np.arr]:
-	return rate, data = wavefile.read(file)
+def read_file(file: str) -> Tuple[int, NDArray[np.float64]]:
+	return wavfile.read(file)
 
 def get_bits(message: str) -> List[int]:
 	message_bits = []
@@ -22,12 +23,7 @@ def get_bits(message: str) -> List[int]:
 			message_bits.append(int(j))
 	return message_bits
 
-samples = np.fft.fft(samples)
-
-for i in range(num_samples):
-	pass	
-
-rate, data = wavefile.read(file)
+rate, data = read_file(file)
 num_samples = data.shape[0]
 message_bits = get_bits(message)
 message_len = len(message_bits)
@@ -44,7 +40,7 @@ for i in range(0, len(data), sizeOfChunk):
 # Step 2
 info = []
 for chunk in data_chunks:
-	mag = abs(np.fft.ftt(chunk))
+	mag = abs(np.fft.fft(chunk))
 	angle = np.angle(np.fft.fft(chunk))
 	info.append((mag, angle))
 
