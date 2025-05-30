@@ -1,4 +1,3 @@
-import wave
 import numpy as np
 import sys
 import struct
@@ -14,18 +13,7 @@ message = sys.argv[2]
 def read_file(file: str) -> List[int, np.arr]:
 	return rate, data = wavefile.read(file)
 
-# 2: get the samples
-def get_samples():
-	samples = []
-	for i in range(0, len(frame_bytes), 2):
-		samples.append(int.from_bytes(frame_bytes[i: i+2], byteorder="little", signed=True))
-
-	print(num_samples)
-	print(len(samples))
-
-	return samples
-
-# 3: message bits
+# 2: message bits
 def get_bits(message: str) -> List[int]:
 	message_bits = []
 	for i in message:
@@ -42,10 +30,10 @@ for i in range(num_samples):
 	pass	
 
 rate, data = wavefile.read(file)
-num_samples = len(data)
+num_samples = data.shape[0]
 message_bits = get_bits(message)
 message_len = len(message_bits)
-sizeOfChunk = math.celi(num_samples / message_len)
+sizeOfChunk = math.ceil(num_samples / message_len)
 numChunks = math.ceil(len(data) / sizeOfChunk)
 
 data_chunks = []
