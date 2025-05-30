@@ -76,7 +76,7 @@ for i in range(len(info)):
 	else:
 		phi_list.append(-np.pi / 2)
 
-# Step 5a
+# Step 5a SOMEONE PLEASE CHECK EVERY STEP FROM THIS ONE ON (；人；)
 for i in range(message_len):
 	info[sizeOfChunk/2 - message_len + i][1] = phi_list[i]
 
