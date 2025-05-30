@@ -33,8 +33,6 @@ rate, data = wavefile.read(file)
 num_samples = data.shape[0]
 message_bits = get_bits(message)
 message_len = len(message_bits)
-<<<<<<< HEAD
-=======
 
 # Step 1
 >>>>>>> 5179f6024975bb0c1668a10cc6db935c6d0f86c2
