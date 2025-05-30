@@ -73,3 +73,4 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-29 - encoding.py steps 5 and 6
 + tried writing steps 5 and 6 based off of tutorial
 + put comments about step 7
+

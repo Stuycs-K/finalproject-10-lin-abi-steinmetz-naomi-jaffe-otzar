@@ -49,3 +49,10 @@ At home, continuing to add to sources and outside uses of audio stegography with
 
 ### 2024-05-28 - Updating README.md and writing script for presentation
 In class, was updated on Naomi and Otzar's progress on phase coding. Continued to add to google doc of compiling research and presentation script.
+
+At home, continued to work on finishing up research and presentation script.
+
+### 2024-05-28 - Reviewing markdown and transferring google doc to README.md
+In class, finished the project overview of the README.md, adding all relevant images and links.
+
+At home, finished project usage in the README.md, and learned about potential extra code for analyzing the accuracy of the audio changes. Researched and prepared to code.
