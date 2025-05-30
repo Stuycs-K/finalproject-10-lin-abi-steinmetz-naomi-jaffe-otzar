@@ -35,7 +35,6 @@ message_bits = get_bits(message)
 message_len = len(message_bits)
 
 # Step 1
->>>>>>> 5179f6024975bb0c1668a10cc6db935c6d0f86c2
 sizeOfChunk = math.ceil(num_samples / message_len)
 numChunks = math.ceil(len(data) / sizeOfChunk)
 
