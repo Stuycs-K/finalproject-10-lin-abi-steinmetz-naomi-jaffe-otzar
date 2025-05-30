@@ -9,11 +9,9 @@ from typing import List
 file = sys.argv[1]
 message = sys.argv[2]
 
-# 1: read file
 def read_file(file: str) -> List[int, np.arr]:
 	return rate, data = wavefile.read(file)
 
-# 2: message bits
 def get_bits(message: str) -> List[int]:
 	message_bits = []
 	for i in message:
@@ -79,4 +77,10 @@ for i in range(2, numChunks):
 # Step 7
 # wth does Aiexp(jphasei) mean????
 # put the thing back into chunks, reconstruct signal
-# chunks = np.fft.ifft(chunks)
+chunks = np.fft.ifft(chunks)
+channels = []
+for chunk in chunks:
+	channels.extend(chunk)
+
+# Step 8
+wavefile.write("steg", rate, channels)
