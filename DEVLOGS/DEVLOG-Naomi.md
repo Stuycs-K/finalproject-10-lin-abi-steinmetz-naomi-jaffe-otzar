@@ -50,7 +50,6 @@ This document must be updated daily every time you finish a work session.
 + tested lsb encode and decode
 + fixed file path in decode
 
-
 ### 2024-05-27 - start phase coding
 + researched phase coding
 + tried to understand templates
@@ -59,3 +58,18 @@ This document must be updated daily every time you finish a work session.
 ### 2024-05-27 - chunks
 + tried to write chunks for phase coding
 + looked at np.diff, np.fft, pytorch library
+
+### 2024-05-28 - continued phase coding
++ looked at scipy library
++ helped determine if audio was stereo or mono
+
+### 2024-05-28 - phase coding pseudocode
++ tried writing some pseudocode for phase differences in encode.py
+
+### 2024-05-29 - phase encoding
++ looked at tutorial
++ compared tutorial with template
+
+### 2024-05-29 - encoding.py steps 5 and 6
++ tried writing steps 5 and 6 based off of tutorial
++ put comments about step 7
