@@ -33,6 +33,10 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 		message_bits = get_bits(message)
 		message_len = len(message_bits)
 
+		if message_len > num_samples:
+			print("message is too long to encode")
+			return
+
 		# Step 1
 		sizeOfChunk = math.ceil(num_samples / message_len)
 		numChunks = math.ceil(len(data) / sizeOfChunk)
