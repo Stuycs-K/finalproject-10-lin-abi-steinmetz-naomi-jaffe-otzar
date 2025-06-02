@@ -33,25 +33,24 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 		message_bits = get_bits(message)
 		message_len = len(message_bits)
 
-		if message_len > num_samples:
-			print("message is too long to encode")
-			return
-
 		# Step 1
 		sizeOfChunk = math.ceil(num_samples / message_len)
-		numChunks = math.ceil(len(data) / sizeOfChunk)
 
 		data_chunks = []
 		for i in range(0, len(data), sizeOfChunk):
 			endpoint = i + sizeOfChunk if i + sizeOfChunk < len(data) else len(data)
 			data_chunks.append(data[i:endpoint])
 
+		if message_len > len(data_chunks):
+			print("message is too long to encode")
+			return
+
 		# Step 2
 		info = []
 		for chunk in data_chunks:
 			full_ftt = np.fft.fft(chunk)
 			mag = abs(full_ftt)
-			angle = np.angle(full_ftt)
+			angle = np.unwrap(np.angle(full_ftt)) # unwrap to prevent certain phase discontinuities
 			info.append([mag, angle])
 
 		# Step 3
@@ -59,7 +58,7 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 		for i in range(1, len(info)):
 			phase_differences.append(info[i][1] - info[i-1][1])
 
-		# Step 4
+		# Step 4 - only applies to the first block
 		phi_list = []
 		for d in range(len(message_bits)):
 			message_bit = message_bits[d]
@@ -69,19 +68,19 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 				phi_list.append(-np.pi / 2)
 
 		# Step 5a 
-		phi_prime = []
+		phi_prime = info[0][1].copy()
 		for i in range(message_len):
 			L = sizeOfChunk
 			m = message_len
 			index = (L//2 - m) + i 
-			phi_prime[index][1] += phi_list[i]
+			phi_prime[index] += phi_list[i]
 
 		# Step 5b
 		for i in range(message_len):
 			L = sizeOfChunk
 			m = message_len
 			index = L // 2 + i + 1
-			phi_prime[index][1] = -phi_list[m + 1 - i]
+			phi_prime[index] = -phi_list[m - 1 - i]
 
 		# Step 6
 		for i in range(1, len(info)):
