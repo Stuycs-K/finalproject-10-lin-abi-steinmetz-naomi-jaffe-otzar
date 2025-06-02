@@ -28,6 +28,7 @@ def encoding(fileList, mode):
     audio = wave.open(audiofile, "rb")
     parameters = audio.getparams()
     num_channels = audio.getnchannels()
+    print("num of channels", num_channels)
     sample_width = audio.getsampwidth()
     num_frames = audio.getnframes()
     num_samples = num_frames * num_channels
@@ -52,7 +53,7 @@ def encoding(fileList, mode):
     msg_bin += terminate
     msg_len = len(msg_bin)
     # print("message in binary: ",msg_bin)
-    
+
     if mode == "1" and msg_len > len(frame_bytes):
         print("message too large to encode in audio file (1-bit LSB)")
         return "false"
