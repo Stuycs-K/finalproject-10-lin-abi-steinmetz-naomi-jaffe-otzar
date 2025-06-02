@@ -74,5 +74,9 @@ This document must be updated daily every time you finish a work session.
 + tried writing steps 5 and 6 based off of tutorial
 + put comments about step 7
 
-### 2024-05-30 - 
+### 2024-05-30 - encode check
 + looked over encode
+
+### 2024-06-01/02 - encode testing/debugging
++ tried to test phase encode with makefile, but problem with importing libraries
++ started decode, added comments
