@@ -84,10 +84,10 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 			phi_prime[index][1] = -phi_list[m + 1 - i]
 
 		# Step 6
-		for i in range(2, numChunks):
+		for i in range(1, len(info)):
 			info[i][1] = info[i-1][1] + phase_differences[i]
 
-		chunks = []
+		chunks = info
 
 		# Step 7
 		# wth does Aiexp(jphasei) mean????
@@ -98,7 +98,7 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 			channels.extend(chunk)
 
 		# Step 8
-		wavefile.write("steg", rate, channels)
+		wavfile.write("steg", rate, channels)
 	else:
 		print("stereo audio not supported yet")
 
