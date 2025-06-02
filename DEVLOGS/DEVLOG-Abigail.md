@@ -52,7 +52,12 @@ In class, was updated on Naomi and Otzar's progress on phase coding. Continued t
 
 At home, continued to work on finishing up research and presentation script.
 
-### 2024-05-28 - Reviewing markdown and transferring google doc to README.md
+### 2024-05-29 - Reviewing markdown and transferring google doc to README.md
 In class, finished the project overview of the README.md, adding all relevant images and links.
 
 At home, finished project usage in the README.md, and learned about potential extra code for analyzing the accuracy of the audio changes. Researched and prepared to code.
+
+### 2024-05-30 - Finished sources, reviewed phase coding, started on audio quality comparison
+In class, finished up the README.md by adding relevant sources. Reviewed phase coding in class with Otzar and Naomi. Started researching audio quality comparison.
+
+At home, continued research into audio quality comparison, decided to use signal to noise ratio to compare the original and modified audio.
