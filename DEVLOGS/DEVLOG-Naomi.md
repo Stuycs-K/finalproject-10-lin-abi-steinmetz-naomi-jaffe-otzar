@@ -26,7 +26,7 @@ This document must be updated daily every time you finish a work session.
 
 ### 2024-05-20 - audio_modified.wav
 + tested encode
-+ fixed output wav file header 
++ fixed output wav file header
 
 ### 2024-05-20 - user interface tweaks
 + added option of manual user input for encode
@@ -39,7 +39,7 @@ This document must be updated daily every time you finish a work session.
 + tested decode.py
 + researched phase coding and tone insertion
 
-### 2024-05-22 
+### 2024-05-22
 + not in class due to AP Calc BC
 
 ### 2024-05-23
@@ -80,3 +80,7 @@ This document must be updated daily every time you finish a work session.
 ### 2024-06-01/02 - encode testing/debugging
 + tried to test phase encode with makefile, but problem with importing libraries
 + started decode, added comments
+
+### 2024-06-02 - encode debugging
++ imported Libraries
++ started debugging phase encode
