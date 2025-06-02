@@ -41,8 +41,29 @@ if type_of_data == "mono":
     for i in range(1, len(info)):
         phase_differences.append(info[i][1] - info[i-1][1])
 
-    # Step 4 - only applies to the first block
+    # Step 4 
     phi_list = []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #figure out hoqw phase differences were changed in encode?? phi_prime doesn't seem to do anything
+
 
     # Step 5a 
     phi_prime = info[0][1].copy()
