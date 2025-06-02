@@ -43,12 +43,6 @@ if type_of_data == "mono":
 
     # Step 4 - only applies to the first block
     phi_list = []
-    for d in range(len(message_bits)):
-        message_bit = message_bits[d]
-        if message_bit == 0:
-            phi_list.append(np.pi / 2)
-        else:
-            phi_list.append(-np.pi / 2)
 
     # Step 5a 
     phi_prime = info[0][1].copy()
