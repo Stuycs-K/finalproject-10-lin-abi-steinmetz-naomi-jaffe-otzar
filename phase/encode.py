@@ -49,9 +49,10 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 		# Step 2
 		info = []
 		for chunk in data_chunks:
-			mag = abs(np.fft.fft(chunk))
-			angle = np.angle(np.fft.fft(chunk))
-			info.append((mag, angle))
+			full_ftt = np.fft.fft(chunk)
+			mag = abs(full_ftt)
+			angle = np.angle(full_ftt)
+			info.append([mag, angle])
 
 		# Step 3
 		phase_differences = []
@@ -60,20 +61,27 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 
 		# Step 4
 		phi_list = []
-		for i in range(len(info)):
-			message_bit = message_bits[i]
+		for d in range(len(message_bits)):
+			message_bit = message_bits[d]
 			if message_bit == 0:
 				phi_list.append(np.pi / 2)
 			else:
 				phi_list.append(-np.pi / 2)
 
-		# Step 5a SOMEONE PLEASE CHECK EVERY STEP FROM THIS ONE ON (；人；)
+		# Step 5a 
+		phi_prime = []
 		for i in range(message_len):
-			info[sizeOfChunk/2 - message_len + i][1] = phi_list[i]
+			L = sizeOfChunk
+			m = message_len
+			index = (L//2 - m) + i 
+			phi_prime[index][1] += phi_list[i]
 
 		# Step 5b
 		for i in range(message_len):
-			info[sizeOfChunk/2 + 1 + i][1] = phi_list[message_len + 1 - i]
+			L = sizeOfChunk
+			m = message_len
+			index = L // 2 + i + 1
+			phi_prime[index][1] = -phi_list[m + 1 - i]
 
 		# Step 6
 		for i in range(2, numChunks):
