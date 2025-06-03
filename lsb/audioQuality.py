@@ -2,18 +2,9 @@ import wave
 import os
 import struct
 import sys
-import numpy as np
-from scipy.io import wavfile
+import math
 
-print("Choose decoding mode:")
-print("1 = 1-bit LSB")
-print("2 = 2-bit LSB")
-print("flip = 2 bit (bits 3 and 2) + optional flip of bits 1 and 0")
-mode = input("Enter mode (1/2/flip): ")
-
-file_name = "data/"+sys.argv[1]
-
-def getSample(wav_file):
+def getSamples(wav_file):
     with wave.open(wav_file, 'rb') as audio:
         num_frames = audio.getnframes()
         sample_width = audio.getsampwidth()
@@ -29,64 +20,35 @@ def getSample(wav_file):
 def signalNoiseRatio(original_sample, modified_sample):
     signal_power = 0
     noise_power = 0
-    count = min(len(samples1), len(samples2))
+    count = min(len(sample1), len(sample2))
     for i in range(count):
-        signal_power += samples1[i] ** 2
-        noise_power += (samples1[i] - samples2[i]) ** 2
+        signal_power += sample1[i] ** 2
+        noise_power += (sample1[i] - sample2[i]) ** 2
     signal_power /= count
     noise_power /= count
 
-    if noise_power == 0:
-        return float('inf')  # perfect match
+    if noise_power == 0: # same audio
+        return "infinite"
     snr = 10 * math.log10(signal_power / noise_power)
     return snr
 
-# def calculateSNR(original_audio, modified_audio):
-#     originalData =  wavefile.read(original_audio)
-#     modifiedData = wavefile.read(modified_audio)
-
-if len(sys.argv) >= 3:
-    print("Choose encoding mode:")
-    print("1 = 1-bit LSB")
-    print("2 = 2-bit LSB")
-    print("flip = 2 bit (bits 3 and 2) + optional flip of bits 1 and 0")
-    mode = input("Enter mode (1/2/flip): ")
-    success = encoding(sys.argv, mode)
-    if (success == "false"):
-        print("please try again")
-        exit()
-    print("embedded audio available")
-    exit()
-
-print("Please enter the name of the audio file (must be a wave file): ")
-audiofile = input()
-while (not(audiofile.endswith(".wav"))):
+print("Please enter the original audio file name (must be a wave file):")
+originalfile = input()
+while (not(originalfile.endswith(".wav"))):
     print("Please try again. The file must end in .wav: ")
-    audiofile = input()
-arglist = [""]
-arglist.append(audiofile)
+    originalfile = input()
 
-print("Please enter the (first) file containing the secret message: ")
-fileName = input()
-arglist.append(fileName)
-while (True):
-    print("Would you like to add another secret message? (y/n)")
-    cont = input()
-    if (cont == "n"):
-        break
-    print("Please enter file name: ")
-    fileName = input()
-    arglist.append(fileName)
+print("Please enter the modified audio file name (must be a wave file):")
+modifiedfile = input()
+while (not(modifiedfile.endswith(".wav"))):
+    print("Please try again. The file must end in .wav: ")
+    modifiedfile = input()
 
-print("Choose encoding mode:")
-print("1 = 1-bit LSB")
-print("2 = 2-bit LSB")
-print("flip = 2 bit (bits 3 and 2) + optional flip of bits 1 and 0")
-mode = input("Enter mode (1/2/flip): ")
+originalfile = "data/"+originalfile
+modifiedfile = "data/"+modifiedfile
 
-success = encoding(arglist, mode)
-if (success == "false"):
-    print("please try again")
-    exit()
-print("embedded audio available")
-exit()
+sample1 = getSamples(originalfile)
+sample2 = getSamples(modifiedfile)
+
+snr_value = f"{signalNoiseRatio(sample1, sample2):.2f}"
+print(f"\nSignal-to-Noise Ratio (SNR): "+snr_value+" dB")
