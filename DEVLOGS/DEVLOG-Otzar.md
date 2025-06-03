@@ -47,3 +47,7 @@ Getting the chunks to work right. Doing some debugging because it would not run 
 ### 2025-05-30 - Reconstructing the audio
 Classwork: Working on using the ifft and the other functions to get the audio back into a listenable state.
 Homework: Working out the bugs and working on the encode code more
+
+### 2025-06-02 - Encode
+FINALLY GOT THE ENCODE WORKING that was close.
+Didn't understand the final part of the tutorial at first but then I realized that it meant to literally put 1j.
