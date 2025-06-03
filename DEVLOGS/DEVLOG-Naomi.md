@@ -87,3 +87,7 @@ This document must be updated daily every time you finish a work session.
 
 ### 2024-06-02/03 - decode start
 + wrote decode outline with comments
+
+
+### 2024-06-03 - encode testing
++ tested encode
