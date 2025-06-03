@@ -8,7 +8,7 @@ from numpy.typing import NDArray
 
 file = sys.argv[1]
 print("What is the length of the message encoded? ")
-message_len = input()
+message_len = int(round(float(input())))
 
 def read_file(file: str) -> Tuple[int, NDArray[np.float64]]:
 	return wavfile.read(file)
@@ -41,8 +41,7 @@ if type_of_data == "mono":
         full_ftt = np.fft.fft(chunk)
         mag = abs(full_ftt)
         angle = np.unwrap(np.angle(full_ftt)) # unwrap to prevent certain phase discontinuities
-        og_angle = math.log(full_ftt/mag) / 1j #don't know how to retrieve imaginary part of the number since only the real part was put into chunks--inaccurate complex number
-        info.append([mag, og_angle])
+        info.append([mag, angle])
 
     # Step 3
     phase_differences = []
@@ -59,8 +58,8 @@ if type_of_data == "mono":
     m = message_len
 
     for i in range(message_len):
-        index = L // 2 + i + 1
-        phi_list[m - 1 - i] = -phi_prime[index]
+        index = L // 2 + (m - i)
+        phi_list[i] = -phi_prime[index]
     
     phi_prime = info[0][1].copy()
     for i in range(message_len):
