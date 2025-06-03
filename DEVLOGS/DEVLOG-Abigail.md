@@ -61,3 +61,8 @@ At home, finished project usage in the README.md, and learned about potential ex
 In class, finished up the README.md by adding relevant sources. Reviewed phase coding in class with Otzar and Naomi. Started researching audio quality comparison.
 
 At home, continued research into audio quality comparison, decided to use signal to noise ratio to compare the original and modified audio.
+
+### 2024-06-02 - Working on compare audio function
+In class, continued work on implementing research on Signal-to-Noise Ratio (SNR) in python to be used as a comparison between the original and modified audio to see how distorted it became. Finished most of code, but needed to add user input.
+
+At home, cleaned up the code and added user input + into makefile to be used. Did testing with the audio with the three different modes, which correctly shows that with each mode increasing, the signal-to-noise ratio lowers in dB. Need to update code to allow for output file name.
