@@ -24,18 +24,40 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 
 	if type_of_data == "stereo":
 		print("unsupported audio")
+		return
+	
+	if data.dtype != np.float64:
+		data = data.astype(np.float64) # ensure data is in float64 format cause otherwise it breaks when building it back
+		print("data type is not float64 so we are converting...")
 
 	num_samples = data.shape[0]
 	message_bits = get_bits(message)
 	message_len = len(message_bits)
 
+	if message_len == 0:
+		print("message is empty")
+		return
+	
+	if message_len > num_samples // 2:
+		print("message is too long for the audio file")
+		return
+
 	# Step 1
 	sizeOfChunk = math.ceil(num_samples / message_len)
+
+	if sizeOfChunk <= 1:
+		print("message is too long for the audio file") # this is because we cannot encode a message that is too long
+		return
 
 	data_chunks = []
 	for i in range(0, len(data), sizeOfChunk):
 		endpoint = i + sizeOfChunk if i + sizeOfChunk < len(data) else len(data)
-		data_chunks.append(data[i:endpoint])
+		chunk = data[i:endpoint]
+		if chunk.shape[0] < sizeOfChunk:
+			# pad the chunk with zeros if it is smaller than sizeOfChunk
+			# numpy.pad(array, pad_width, mode='constant', **kwargs)[source]
+			chunk = np.pad(chunk, (0, sizeOfChunk - len(chunk)))
+		data_chunks.append(chunk)
 
 	if message_len > len(data_chunks):
 		print("message is too long to encode")
@@ -77,21 +99,34 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 		index = L // 2 + i + 1
 		phi_prime[index] = -phi_list[m - 1 - i]
 
+	# Step 5c
+	info[0][1] = phi_prime
+
 	# Step 6
 	for i in range(1, len(info)):
-		info[i][1] = info[i-1][1] + phase_differences[i]
+		info[i][1] = info[i-1][1] + phase_differences[i-1] # fixed bug here it should be i - 1 not i
 	
 	chunks = info
 
 	# Step 7
-	# put the thing back into chunks, reconstruct signal
-	chunks = np.fft.ifft(chunks)
+	# put the thing back into chunks, reconstruct the thing
+	new_chunks = []
+	for mag, angle in chunks:
+		complex = mag * np.exp(1j * angle)
+		chunk = np.fft.ifft(complex)
+		real_chunk = np.real(chunk)
+		# make sure the chunk is in the float64 format or else it breaaks
+		real_chunk = real_chunk.astype(np.float64)
+		new_chunks.append(real_chunk)
+
+	# creating the channel array
 	channels = []
-	for chunk in chunks:
+	for chunk in new_chunks:
 		channels.extend(chunk)
+	channels = np.array(channels)
 
 	# Step 8
-	wavfile.write("steg", rate, channels)
+	wavfile.write("steg.wav", rate, channels)
 
 if __name__ == "__main__":
 	file = sys.argv[1]
