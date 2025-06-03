@@ -23,7 +23,7 @@ if type_of_data == "mono":
     num_samples = data.shape[0]
 
     # Step 1: making chunks
-    sizeOfChunk = math.ceil(num_samples / message_len) 
+    sizeOfChunk = math.ceil(num_samples / message_len)
 
     data_chunks = []
     for i in range(0, len(data), sizeOfChunk):
@@ -49,7 +49,7 @@ if type_of_data == "mono":
         info[i][1] = info[i][1] - info[i-1][1]
         phase_differences.append(info[i][1])
 
-    # Step 4 
+    # Step 4
     phi_prime = []
     info[0][1] = phi_prime
     phi_list = []
@@ -60,10 +60,10 @@ if type_of_data == "mono":
     for i in range(message_len):
         index = L // 2 + (m - i)
         phi_list[i] = -phi_prime[index]
-    
+
     phi_prime = info[0][1].copy()
     for i in range(message_len):
-        index = (L//2 - m) + i 
+        index = (L//2 - m) + i
         # phi_prime[index] += phi_list[i] #how do we get phi_list[i] from this? do we subtract phase difference or something?
 
     for bit in phi_list:
@@ -71,7 +71,7 @@ if type_of_data == "mono":
             decoded_bits += "0"
         else:
             decoded_bits += "1"
-    
+
     # taken from other decode (was unsure if ending part should be put in too)
     # Group arr by eights, convert to decimal, then to unicode
     decoded_bytes = ""

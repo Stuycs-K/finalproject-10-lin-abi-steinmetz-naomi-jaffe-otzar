@@ -18,14 +18,14 @@ def get_bits(message: str) -> List[int]:
 			message_bits.append(int(j))
 	return message_bits
 
-def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
+def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: str) -> None:
 	# determine the type of data (mono or stereo)
 	type_of_data = "mono" if len(data.shape) == 1 else "stereo"
 
 	if type_of_data == "stereo":
 		print("unsupported audio")
 		return
-	
+
 	if data.dtype != np.float64:
 		data = data.astype(np.float64) # ensure data is in float64 format cause otherwise it breaks when building it back
 		print("data type is not float64 so we are converting...")
@@ -38,7 +38,7 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 	if message_len == 0:
 		print("message is empty")
 		return
-	
+
 	if message_len > num_samples // 2:
 		print("message is too long for the audio file")
 		return
@@ -89,10 +89,10 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 	# Step 5a
 	L = sizeOfChunk
 	m = message_len
- 
+
 	phi_prime = info[0][1].copy()
 	for i in range(message_len):
-		index = (L//2 - m) + i 
+		index = (L//2 - m) + i
 		phi_prime[index] += phi_list[i]
 
 	# Step 5b
@@ -106,7 +106,7 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 	# Step 6
 	for i in range(1, len(info)):
 		info[i][1] = info[i-1][1] + phase_differences[i-1] # fixed bug here it should be i - 1 not i
-	
+
 	chunks = info
 
 	# Step 7
@@ -127,14 +127,15 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 	channels = np.array(channels)
 
 	# Step 8
-	wavfile.write("steg.wav", rate, channels)
+	mod_name = filename[0:len(filename)-4] + "_modified.wav"
+	wavfile.write(mod_name, rate, channels)
 
 if __name__ == "__main__":
 	file = sys.argv[1]
 	message = sys.argv[2]
-	
+
 	rate, data = read_file(file)
-	
+
 	print("encoding message:", message)
-	encode_phase(rate, data, message)
+	encode_phase(rate, data, message, file)
 	print("done")
