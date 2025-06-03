@@ -50,8 +50,7 @@ if type_of_data == "mono":
         phase_differences.append(info[i][1])
 
     # Step 4
-    phi_prime = []
-    info[0][1] = phi_prime
+    phi_prime = info[0][1].copy()
     phi_list = []
 
     L = sizeOfChunk
@@ -59,15 +58,14 @@ if type_of_data == "mono":
 
     for i in range(message_len):
         index = L // 2 + (m - i)
-        phi_list[i] = -phi_prime[index]
+        phi_list.append(-phi_prime[index])
 
-    phi_prime = info[0][1].copy()
-    for i in range(message_len):
-        index = (L//2 - m) + i
-        # phi_prime[index] += phi_list[i] #how do we get phi_list[i] from this? do we subtract phase difference or something?
+    #for i in range(message_len):
+    #    index = (L//2 - m) + i
+    #    # phi_prime[index] += phi_list[i] #how do we get phi_list[i] from this? do we subtract phase difference or something?
 
     for bit in phi_list:
-        if phi_list[bit] == np.pi/2:
+        if phi_list[int(bit)] == np.pi/2:
             decoded_bits += "0"
         else:
             decoded_bits += "1"
