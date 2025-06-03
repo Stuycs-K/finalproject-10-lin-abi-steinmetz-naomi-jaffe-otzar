@@ -42,4 +42,8 @@ Homework: Watching a YT video to understand better.
 Classwork: Encoding function
 
 ### 2025-05-29 - Chunks
-Getting the chunks to work right.
+Getting the chunks to work right. Doing some debugging because it would not run without errors. Both classwork and homework.
+
+### 2025-05-30 - Reconstructing the audio
+Classwork: Working on using the ifft and the other functions to get the audio back into a listenable state.
+Homework: Working out the bugs and working on the encode code more
