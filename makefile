@@ -6,3 +6,5 @@ decode:
 	@python3 lsb/decode.py $(ARGS)
 decode2:
 	@python lsb/decode.py $(ARGS)
+compare:
+	@python3 lsb/audioQuality.py
