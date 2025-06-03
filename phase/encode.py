@@ -33,6 +33,7 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str) -> None:
 	num_samples = data.shape[0]
 	message_bits = get_bits(message)
 	message_len = len(message_bits)
+	print("message length in bits:", message_len)
 
 	if message_len == 0:
 		print("message is empty")
