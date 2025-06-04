@@ -41,14 +41,13 @@ audio byte.
 ![1-bit LSB Encoding Manipulation 2](images/2bitlsb.png)
 ## LSB Encoding (Flip Mode)
 
-● Hide two bits of the message in the 2nd and 3rd bits of each audio byte
-● Optionally flip bits 1 and 0 depending on the conditions, making it harder to scan for/detect
-\
++ Hide two bits of the message in the 2nd and 3rd bits of each audio byte
++ Optionally flip bits 1 and 0 depending on the conditions, making it harder to scan for/detect
 
 1. Function that looks at bits 2 and 3 of the current byte (x, y) and next two bits of the message (a,
     b) \
        a. If (x, y) = (a, b), do nothing. \
-       b. If (x, y) != (a, b), flip bits 0 and 1. \
+       b. If (x, y) != (a, b), flip bits 0 and 1. 
 2. Clear bits 2 and 3 to prepare them
 3. Insert message bits into bits 2 and 3 by adding: \
     a. 0 if 00 \
@@ -60,10 +59,10 @@ audio byte.
 ## LSB Encoding - Under the Shed
 
 1. We prepare the audio’s raw data so that we can modify individual bits in each byte. We
-    gather necessary data on:
-       a. Number of channels
-       b. Bytes per sample (Sample width)
-          c. Samples (Number of frames)
+    gather necessary data on: \
+       a. Number of channels \
+       b. Bytes per sample (Sample width) \
+       c. Samples (Number of frames) 
 2. We read in the secret message, converting 1 character = 8 bit binary string.
 3. Depending on the encoding mode chosen we encode the message.
 4. We create a new audio file with the secret message.
