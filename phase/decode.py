@@ -31,31 +31,22 @@ if type_of_data == "mono":
         chunk = data[i:endpoint]
         if chunk.shape[0] < sizeOfChunk:
             # pad the chunk with zeros if it is smaller than sizeOfChunk
-            # numpy.pad(array, pad_width, mode='constant', **kwargs)[source]
             chunk = np.pad(chunk, (0, sizeOfChunk - len(chunk)))
         data_chunks.append(chunk)
 
-    # Step 2
-    info = []
-    for chunk in data_chunks:
-        full_ftt = np.fft.fft(chunk)
-        mag = abs(full_ftt)
-        angle = np.unwrap(np.angle(full_ftt)) # unwrap to prevent certain phase discontinuities
-        info.append([mag, angle])
-
-    # Step 3
-    phi_prime = info[0][1].copy()
-    phi_list = []
-
+    # Step 2: compute FFT of the first chunk to read encoded bits
+    full_fft = np.fft.fft(data_chunks[0])
     L = sizeOfChunk
-    m = message_len
+    start_bin = L // 4 # we are now using more stable frequencies cause before it was too close to 0
 
+    phases = []
     for i in range(message_len):
-        index = (L // 2) + (m - i)
-        phi_list.append(-phi_prime[index])
+        index = L - (start_bin + i)
+        phase = np.angle(full_fft[index])
+        phases.append(phase)
 
-    for bit in phi_list:
-        if abs(bit - np.pi/2) < 1e-6:
+    for phase in phases:
+        if phase < 0:
             decoded_bits += "0"
         else:
             decoded_bits += "1"
@@ -67,3 +58,5 @@ if type_of_data == "mono":
         decoded_bytes += chr(int(decoded_bits[i:i+8],2))
 
     print(decoded_bytes)
+else:
+    print("only mono data supported.")
