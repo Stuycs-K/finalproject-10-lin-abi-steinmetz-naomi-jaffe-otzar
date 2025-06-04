@@ -22,7 +22,7 @@ common encryption methods. It can be used to:
 
 This works by converting the audio (a .wav file) into bytes, and changing the least significant
 bit of each byte with a bit from the message file.
-
+ ![1-bit LSB Encoding](1bitlsb.png)
 
 ## LSB Encoding (1-bit)
 
