@@ -5,6 +5,7 @@ from scipy.io import wavfile
 from typing import Tuple, List
 from numpy.typing import NDArray
 from pydub import AudioSegment
+from io import BytesIO
 
 def read_file(file: str) -> Tuple[int, NDArray[np.float64]]:
 	return wavfile.read(file)
@@ -20,15 +21,18 @@ def get_bits(message: str) -> List[int]:
 	return message_bits
 
 def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: str) -> None:
+	orig_dtype = data.dtype  # remember original dtype
 	# determine the type of data (mono or stereo)
 	type_of_data = "mono" if len(data.shape) == 1 else "stereo"
 
 	if type_of_data == "stereo":
-		print("unsupported audio")
+		print("unsupported audio, converting to mono using BytesIO")
 		sound = AudioSegment.from_wav(filename)
 		sound = sound.set_channels(1)
-		sound.export(filename[0:-4] + '_converted' + '.wav', format="wav")
-		rate, data = read_file(filename)
+		out_io = BytesIO()
+		sound.export(out_io, format="wav")
+		out_io.seek(0)
+		rate, data = wavfile.read(out_io)
 
 	if data.dtype != np.float64:
 		data = data.astype(np.float64) # ensure data is in float64 format cause otherwise it breaks when building it back
@@ -98,8 +102,12 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 	for i in range(m):
 		index_low = start + i
 		index_high = L - index_low
-		phi_prime[index_low] = phi_list[i]
-		phi_prime[index_high] = -phi_list[i]
+		try:
+			phi_prime[index_low] = phi_list[i]
+			phi_prime[index_high] = -phi_list[i]
+		except:
+			print("message is too long")
+			return
 		# make sure magnitude is large enough so phase is stable
 		min_amp = 1e-3
 		if chunks[0][0][index_low] < min_amp:
@@ -128,7 +136,17 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 		channels.extend(chunk)
 	channels = np.array(channels)
 
-	# Step 8
+	# Step 8a - make it not super loud
+	peak_orig = np.max(np.abs(data))
+	peak_mod = np.max(np.abs(channels))
+	if peak_mod > 0:
+		scale = peak_orig / peak_mod
+		channels = channels * scale
+
+	# Step 8b - convert back to original dtype for writing
+	channels = channels.astype(orig_dtype)
+
+	# Step 8c
 	mod_name = filename[0:len(filename)-4] + "_modified.wav"
 	wavfile.write(mod_name, rate, channels)
 
