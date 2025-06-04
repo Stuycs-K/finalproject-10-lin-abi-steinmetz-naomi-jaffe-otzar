@@ -4,6 +4,9 @@
 ### Group Name: CITY HALL DAD LEGS
 
 **Group Members:** Abigail Lin, Naomi Steinmetz, Otzar Jaffe
+
+## Video
+https://drive.google.com/file/d/1LkZhx9zMF6Zgxp0X_ZyJ3-0-NNieqEwJ/view?usp=sharing
        
 ## Project Description:
 
