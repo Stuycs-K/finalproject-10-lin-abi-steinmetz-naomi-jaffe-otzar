@@ -144,7 +144,9 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 		channels = channels * scale
 
 	# Step 8b - convert back to original dtype for writing
-	channels = channels.astype(orig_dtype)
+	"""print(type(channels[0]))
+	print(orig_dtype)
+	channels = channels.astype(orig_dtype)"""
 
 	# Step 8c
 	mod_name = filename[0:len(filename)-4] + "_modified.wav"
