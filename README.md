@@ -78,7 +78,21 @@ Python 3: ```make decode ARGS="(.wav file)"```
 
 Python: ```make decode2 ARGS="(.wav file)"```
 
-6. **Compare audio files:**
+6. **Encode with phase stenography**
+For encode, you will need to give the wav file and the message.
+
+Python 3: ```make encode_phase ARGS=".wavfile, message"```
+
+Python: ```make encode_phase2 ARGS=".wavfile, message"```
+
+6. **Decode with phase stenography**
+For decode, you will need to give the wav file and the message.
+
+Python 3: ```make decode_phase ARGS=".wavfile"```
+
+Python: ```make decode_phase2 ARGS=".wavfile"```
+
+8. **Compare audio files:**
 You will be prompted to input the necessary parameters: original .wav audio file and modified .wav audio file.
 
 Python 3: ```make compare ARGS```
