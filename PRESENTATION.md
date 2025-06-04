@@ -12,11 +12,9 @@ message in the chosen vector, which is audio.
 This has applications beyond allowing for simple messages to be sent like most other
 common encryption methods. It can be used to:
 
-```
-● Track User Data
-● Hide Malware
-● Trigger Smart Home Devices
-```
++ Track User Data
++ Hide Malware
++ Trigger Smart Home Devices
 
 ## LSB Encoding (1- bit)
 
@@ -101,7 +99,7 @@ highest to lowest dB:
 
 
 ## Phase Encoding - Phase Changes
-![phase change - phase encoding](images/phasechanges.png)
+![phase change - phase encoding](images/phasechange.png)
 
 ## Phase Encoding - FFT
 ![Fast Fourier Transform](images/fft.png)
