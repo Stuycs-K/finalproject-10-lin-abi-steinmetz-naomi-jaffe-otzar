@@ -29,3 +29,25 @@ Homework: Finished debugging and merged with main
 ### 2025-05-22 - Finished up decode and researching extensions
 Classwork: AP Exam
 Homework: Research
+
+### 2025-05-23 - Working on phase coding
+Classwork: Trying to understand this https://ijarcce.com/wp-content/uploads/2012/06/11_LSB-Modification-and-Phase-Encoding-Technique-of-Audio-Steganography-Revisited.pdf
+Homework: Started on the phase coding: split apart the audio and decoded the audio into the right text format
+
+### 2025-05-27 - Still confused on how phase coding works
+Classwork: Reviewing a code example and trying to figure out exactly what each numpy function does to see how it works exactly.
+Homework: Watching a YT video to understand better.
+
+### 2025-05-28 - Continuing working and debugging
+Classwork: Encoding function
+
+### 2025-05-29 - Chunks
+Getting the chunks to work right. Doing some debugging because it would not run without errors. Both classwork and homework.
+
+### 2025-05-30 - Reconstructing the audio
+Classwork: Working on using the ifft and the other functions to get the audio back into a listenable state.
+Homework: Working out the bugs and working on the encode code more
+
+### 2025-06-02 - Encode
+FINALLY GOT THE ENCODE WORKING that was close.
+Didn't understand the final part of the tutorial at first but then I realized that it meant to literally put 1j.

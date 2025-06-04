@@ -8,3 +8,5 @@ decode2:
 	@python lsb/decode.py $(ARGS)
 compare:
 	@python3 lsb/audioQuality.py
+encode3:
+	@python3 phase/encode.py $(ARGS)
