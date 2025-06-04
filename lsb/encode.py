@@ -19,7 +19,7 @@ def check_flip(data, a, b): # part of LSB flip, which modifies 3rd + 4th LSB, an
         return data ^ 3
 
 
-def encoding(fileList, mode):
+def encoding(fileList, mode, output_name = None):
     if (len(fileList) < 2):
         print("Invalid arguments")
         return "false"
@@ -107,8 +107,15 @@ def encoding(fileList, mode):
         print("invalid encoding mode selected")
         return "false"
 
-    new_frames = bytes(frame_bytes) #look into whether this is necessary
-    mod_name = audiofile[0:len(audiofile)-4] + "_modified.wav"
+    new_frames = bytes(frame_bytes)
+
+    if output_name is None:
+        mod_name = audiofile[0:len(audiofile)-4] + "_modified.wav"
+    else:
+        if not output_name.endswith(".wav"):
+            output_name += ".wav"
+        mod_name = "data/"+output_name
+
     with wave.open(mod_name, "wb") as song:
         song.setparams(parameters)
         song.writeframes(new_frames)
@@ -156,7 +163,12 @@ print("2 = 2-bit LSB")
 print("flip = 2 bit (bits 3 and 2) + optional flip of bits 1 and 0")
 mode = input("Enter mode (1/2/flip): ")
 
-success = encoding(arglist, mode)
+print("Please enter the name of the output file: ")
+output_name = input()
+if output_name.strip() == "":
+    output_name = None
+success = encoding(arglist, mode, output_name)
+
 if (success == "false"):
     print("please try again")
     exit()
