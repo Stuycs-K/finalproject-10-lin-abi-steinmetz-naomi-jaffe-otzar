@@ -4,6 +4,7 @@ import math
 from scipy.io import wavfile
 from typing import Tuple, List
 from numpy.typing import NDArray
+from pydub import AudioSegment
 
 def read_file(file: str) -> Tuple[int, NDArray[np.float64]]:
 	return wavfile.read(file)
@@ -24,6 +25,10 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 
 	if type_of_data == "stereo":
 		print("unsupported audio")
+		# sound = AudioSegment.from_wav(filename)
+		# sound = sound.set_channels(1)
+		# sound.export(filename[0:-4] + '_converted' + '.wav', format="wav")
+		# rate, data = read_file(filename)
 		return
 
 	if data.dtype != np.float64:
