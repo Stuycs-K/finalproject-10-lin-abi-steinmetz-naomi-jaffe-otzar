@@ -38,22 +38,22 @@ We will use bit manipulation tool AND with a bit mask (252) to clear the last tw
 audio byte. Then, we can use the tool OR and attach two bits of the secret message to the
 audio byte.
 ![1-bit LSB Encoding Manipulation 1](images/image2.jpg)
-![1-bit LSB Encoding Manipulation 2](images/2bitlsb.jpg)
+![1-bit LSB Encoding Manipulation 2](images/2bitlsb.png)
 ## LSB Encoding (Flip Mode)
 
 ● Hide two bits of the message in the 2nd and 3rd bits of each audio byte
 ● Optionally flip bits 1 and 0 depending on the conditions, making it harder to scan for/detect
 \
-\
+
 1. Function that looks at bits 2 and 3 of the current byte (x, y) and next two bits of the message (a,
-    b)
-       a. If (x, y) = (a, b), do nothing.
-       b. If (x, y) != (a, b), flip bits 0 and 1.
+    b) \
+       a. If (x, y) = (a, b), do nothing. \
+       b. If (x, y) != (a, b), flip bits 0 and 1. \
 2. Clear bits 2 and 3 to prepare them
-3. Insert message bits into bits 2 and 3 by adding:
-    a. 0 if 00
-    b. 4 if 01
-       c. 8 if 10
+3. Insert message bits into bits 2 and 3 by adding: \
+    a. 0 if 00 \
+    b. 4 if 01 \
+       c. 8 if 10 \
     d. 12 if 11
 
 
