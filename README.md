@@ -5,7 +5,7 @@
 
 **Group Members:** Abigail Lin, Naomi Steinmetz, Otzar Jaffe
        
-### Project Description:
+## Project Description:
 
 Audio Steganography refers to the art of hiding information in audio files. This is different from encryption, as it relies on the assumption that people won’t know to look for the secret message in the chosen vector, which is audio.
 
@@ -30,7 +30,7 @@ In our python implementation, we will use bit manipulation tool AND with a bit m
 ![](https://github.com/Stuycs-K/finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar/blob/main/images/image2.jpg)
 ![](https://github.com/Stuycs-K/finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar/blob/main/images/image1.jpg)
   
-### Instructions:
+## Instructions:
 
 In order to run this project, you must have Python installed.
 1. **Clone the repository:**
@@ -71,21 +71,28 @@ Python 3: ```make decode ARGS="(.wav file)"```
 
 Python: ```make decode2 ARGS="(.wav file)"```
 
-### Resources/ References:
+5. **Compare audio files:**
+You will be prompted to input the necessary parameters: original .wav audio file and modified .wav audio file.
+
+Python 3: ```make compare ARGS```
+
+Python: ```make compare2 ARGS```
+
+## Resources/ References:
 
 https://svenruppert.com/2024/04/17/audio-steganography-in-more-detail/
 
-**Documentation:**
-https://docs.python.org/3/library/wave.html
-https://docs.python.org/3/library/os.html
+### **Documentation:**
+https://docs.python.org/3/library/wave.html<br>
+https://docs.python.org/3/library/os.html<br>
 https://docs.python.org/3/library/sys.html
 
-**Audio Stegnography:**
+### **Audio Stegnography:**
 https://svenruppert.com/2024/04/17/audio-steganography-in-more-detail/
 
-**LSB:**
+### **LSB:**
 https://daniellerch.me/stego/intro/lsb-en/
 https://github.com/sniperline047/Audio-Steganography-CLI/tree/main/algorithms
 
-**Phase Coding:**
+### **Phase Coding:**
 https://dsp.stackexchange.com/questions/14804/audio-steganography-using-phase-encoding-technique
