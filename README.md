@@ -57,21 +57,28 @@ cd finalproject-10-lin-abi-steinmetz-naomi-jaffe-otzar
    │   ├── encode.py
    └── makefile
    ```
-3. **Encode a message:**
+3. **Install libraries**
+```
+python -m venv venv
+source venv/bin/activate
+pip install numpy scipy pydub
+```
+
+4. **Encode a message:**
 You will be prompted to input the neccessary parameters: .wav audio file, .txt secret message, and which LSB encoding mode.
 
 Python 3: ```make encode```
 
 Python: ```make encode2```
 
-4. **Decode a message:**
+5. **Decode a message:**
 For decode, you will need to give the .wav file to decode. The program will prompt you for which decoding LSB mode you would like to use.
 
 Python 3: ```make decode ARGS="(.wav file)"```
 
 Python: ```make decode2 ARGS="(.wav file)"```
 
-5. **Compare audio files:**
+6. **Compare audio files:**
 You will be prompted to input the necessary parameters: original .wav audio file and modified .wav audio file.
 
 Python 3: ```make compare ARGS```

@@ -36,18 +36,22 @@ Homework: Started on the phase coding: split apart the audio and decoded the aud
 
 ### 2025-05-27 - Still confused on how phase coding works
 Classwork: Reviewing a code example and trying to figure out exactly what each numpy function does to see how it works exactly.
-Homework: Watching a YT video to understand better.
+Homework: https://dsp.stackexchange.com/questions/14804/audio-steganography-using-phase-encoding-technique
 
 ### 2025-05-28 - Continuing working and debugging
 Classwork: Encoding function
+Following https://dsp.stackexchange.com/questions/14804/audio-steganography-using-phase-encoding-technique
 
 ### 2025-05-29 - Chunks
 Getting the chunks to work right. Doing some debugging because it would not run without errors. Both classwork and homework.
 
 ### 2025-05-30 - Reconstructing the audio
-Classwork: Working on using the ifft and the other functions to get the audio back into a listenable state.
+Classwork: Working on using the ifft and the other functions to get the audio back into a listenable state (reconstructing the audio after adding the data).
 Homework: Working out the bugs and working on the encode code more
 
 ### 2025-06-02 - Encode
 FINALLY GOT THE ENCODE WORKING that was close.
-Didn't understand the final part of the tutorial at first but then I realized that it meant to literally put 1j.
+Didn't understand the final part of the tutorial (https://dsp.stackexchange.com/questions/14804/audio-steganography-using-phase-encoding-technique) at first but then I realized that it meant to literally put 1j.
+
+### 2025-06-03 - Bugs and Presentation
+There were quite a few bugs that took a few hours to debug. The only one I couldn't iron out was the volume.
