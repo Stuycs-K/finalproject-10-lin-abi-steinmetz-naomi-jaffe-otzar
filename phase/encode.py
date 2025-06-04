@@ -25,11 +25,10 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 
 	if type_of_data == "stereo":
 		print("unsupported audio")
-		# sound = AudioSegment.from_wav(filename)
-		# sound = sound.set_channels(1)
-		# sound.export(filename[0:-4] + '_converted' + '.wav', format="wav")
-		# rate, data = read_file(filename)
-		return
+		sound = AudioSegment.from_wav(filename)
+		sound = sound.set_channels(1)
+		sound.export(filename[0:-4] + '_converted' + '.wav', format="wav")
+		rate, data = read_file(filename)
 
 	if data.dtype != np.float64:
 		data = data.astype(np.float64) # ensure data is in float64 format cause otherwise it breaks when building it back
