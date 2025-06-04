@@ -65,17 +65,17 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 		return
 
 	# Step 2
-	info = []
+	chunks = []
 	for chunk in data_chunks:
 		full_ftt = np.fft.fft(chunk)
 		mag = abs(full_ftt)
 		angle = np.unwrap(np.angle(full_ftt)) # unwrap to prevent certain phase discontinuities
-		info.append([mag, angle])
+		chunks.append([mag, angle])
 
 	# Step 3
 	phase_differences = []
-	for i in range(1, len(info)):
-		phase_differences.append(info[i][1] - info[i-1][1])
+	for i in range(1, len(chunks)):
+		phase_differences.append(chunks[i][1] - chunks[i-1][1])
 
 	# Step 4 - only applies to the first block
 	phi_list = []
@@ -90,7 +90,7 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 	L = sizeOfChunk
 	m = message_len
 
-	phi_prime = info[0][1].copy()
+	phi_prime = chunks[0][1].copy()
 	for i in range(message_len):
 		index = (L//2 - m) + i
 		phi_prime[index] += phi_list[i]
@@ -101,13 +101,11 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 		phi_prime[index] = -phi_list[m - 1 - i]
 
 	# Step 5c
-	info[0][1] = phi_prime
+	chunks[0][1] = phi_prime
 
 	# Step 6
-	for i in range(1, len(info)):
-		info[i][1] = info[i-1][1] + phase_differences[i-1] # fixed bug here it should be i - 1 not i
-
-	chunks = info
+	for i in range(1, len(chunks)):
+		chunks[i][1] = chunks[i-1][1] + phase_differences[i-1] # fixed bug here it should be i - 1 not i
 
 	# Step 7
 	# put the thing back into chunks, reconstruct the thing

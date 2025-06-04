@@ -44,12 +44,6 @@ if type_of_data == "mono":
         info.append([mag, angle])
 
     # Step 3
-    phase_differences = []
-    for i in range(1, len(info)):
-        info[i][1] = info[i][1] - info[i-1][1]
-        phase_differences.append(info[i][1])
-
-    # Step 4
     phi_prime = info[0][1].copy()
     phi_list = []
 
@@ -57,15 +51,11 @@ if type_of_data == "mono":
     m = message_len
 
     for i in range(message_len):
-        index = L // 2 + (m - i)
+        index = (L // 2) + (m - i)
         phi_list.append(-phi_prime[index])
 
-    #for i in range(message_len):
-    #    index = (L//2 - m) + i
-    #    # phi_prime[index] += phi_list[i] #how do we get phi_list[i] from this? do we subtract phase difference or something?
-
     for bit in phi_list:
-        if phi_list[int(bit)] == np.pi/2:
+        if abs(bit - np.pi/2) < 1e-6:
             decoded_bits += "0"
         else:
             decoded_bits += "1"
