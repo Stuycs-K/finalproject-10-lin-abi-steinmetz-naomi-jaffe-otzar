@@ -22,31 +22,29 @@ common encryption methods. It can be used to:
 
 This works by converting the audio (a .wav file) into bytes, and changing the least significant
 bit of each byte with a bit from the message file.
-
+ ![1-bit LSB Encoding](images/1bitlsb.png)
 
 ## LSB Encoding (1-bit)
 
 We will use bit manipulation tool AND with a bit mask (254) to clear the least significant bit
 of the audio byte. Then, we can use the tool OR and attach the bit of the secret message to
 the audio byte.
-
+![1-bit LSB Encoding Manipulation 1](images/image2.jpg)
+![1-bit LSB Encoding Manipulation 2](images/image1.jpg)
 
 ## LSB Encoding (2-bit)
 
 We will use bit manipulation tool AND with a bit mask (252) to clear the last two bits of the
 audio byte. Then, we can use the tool OR and attach two bits of the secret message to the
 audio byte.
-
-```
-252
-```
-
+![1-bit LSB Encoding Manipulation 1](images/image2.jpg)
+![1-bit LSB Encoding Manipulation 2](images/2bitlsb.jpg)
 ## LSB Encoding (Flip Mode)
 
-```
 ● Hide two bits of the message in the 2nd and 3rd bits of each audio byte
 ● Optionally flip bits 1 and 0 depending on the conditions, making it harder to scan for/detect
-```
+\
+\
 1. Function that looks at bits 2 and 3 of the current byte (x, y) and next two bits of the message (a,
     b)
        a. If (x, y) = (a, b), do nothing.
