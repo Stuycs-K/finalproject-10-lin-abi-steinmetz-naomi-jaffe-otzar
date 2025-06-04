@@ -92,19 +92,19 @@ def encode_phase(rate: int, data: NDArray[np.float64], message: str, filename: s
 
 	# Step 5a
 	L = sizeOfChunk
+	start = L // 4  # we are now using more stable frequencies cause before it was too close to 0
 	m = message_len
-
 	phi_prime = chunks[0][1].copy()
-	for i in range(message_len):
-		index = (L//2 - m) + i
-		phi_prime[index] += phi_list[i]
-
-	# Step 5b
-	for i in range(message_len):
-		index = L // 2 + i + 1
-		phi_prime[index] = -phi_list[m - 1 - i]
-
-	# Step 5c
+	for i in range(m):
+		index_low = start + i
+		index_high = L - index_low
+		phi_prime[index_low] = phi_list[i]
+		phi_prime[index_high] = -phi_list[i]
+		# make sure magnitude is large enough so phase is stable
+		min_amp = 1e-3
+		if chunks[0][0][index_low] < min_amp:
+			chunks[0][0][index_low] = min_amp
+			chunks[0][0][index_high] = min_amp
 	chunks[0][1] = phi_prime
 
 	# Step 6
