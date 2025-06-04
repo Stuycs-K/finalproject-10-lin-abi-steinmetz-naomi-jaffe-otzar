@@ -72,7 +72,7 @@ audio byte.
 
 In order to extract the data, the decoder will take either the least significant bit, last two bits,
 or bits 2 and 3 from each byte of the audio and reconstruct the message.
-
+![LSB Decoding](images/lsbdecode.png)
 
 ## Compare Audio Files
 
@@ -101,10 +101,10 @@ highest to lowest dB:
 
 
 ## Phase Encoding - Phase Changes
-
+![phase change - phase encoding](images/phasechanges.png)
 
 ## Phase Encoding - FFT
-
+![Fast Fourier Transform](images/fft.png)
 
 ## Phase Encoding - Phase Shift
-
+![Phase Shifts From Message](images/shifts.png)
